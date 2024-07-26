@@ -1,26 +1,19 @@
 class Solution:
-    def groupThePeople(self,groupSizes):
-        size_to_people = {}
-        
-        # Step 2: Populate the dictionary
-        for person, size in enumerate(groupSizes):
-            if size not in size_to_people:
-                size_to_people[size] = []
-            size_to_people[size].append(person)
-        
+    def groupThePeople(self, groupSizes):
         result = []
-        
-        # Step 3: Form groups
-        for size, people in size_to_people.items():
-            for i in range(0, len(people), size):
-                result.append(people[i:i + size])
-        
+        groups = []
+
+        for size in range(max(groupSizes) + 1):
+            groups.append([])
+
+        for i, size in enumerate(groupSizes):
+            groups[size].append(i)
+            if len(groups[size]) == size:
+                result.append(groups[size])
+                groups[size] = []
+
         return result
 
-
-
-
-groupSizes=[]
-
+groupSizes = [3,3,3,3,3,1,3]
 solution = Solution()
-solution.groupThePeople(groupSizes)
+print(solution.groupThePeople(groupSizes))
