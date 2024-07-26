@@ -14,6 +14,5 @@ class Solution:
 
         return result
 
-groupSizes = [3,3,3,3,3,1,3]
+groupSizes = []
 solution = Solution()
-print(solution.groupThePeople(groupSizes))
