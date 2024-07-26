@@ -3,7 +3,7 @@ class Solution:
         result = []
         groups = []
 
-        for size in range(max(groupSizes) + 1):
+        for size in range(max(groupSizes)):
             groups.append([])
 
         for i, size in enumerate(groupSizes):
