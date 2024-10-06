@@ -9,15 +9,14 @@ class Solution:
         #row 
         for i in range(len(matrix)):
             for j in range(len(matrix[0])):
-                if matrix[i][j] == 0:
-                    n[i] = 1  # i번째 행에 0이 있음을 기록
-                    m[j] = 1  # j번째 열에 0이 있음을 기록
-
-        # 2단계: 0이 있는 행과 열을 0으로 설정
+                if matrix[i][j]==0:
+                    n[i]=1
+                    m[j]=1
+        
         for i in range(len(matrix)):
             for j in range(len(matrix[0])):
-                if n[i] == 1 or m[j] == 1:  # 행 또는 열에 0이 있으면
-                    matrix[i][j] = 0  # 해당 요소를 0으로 설정
+                if n[i]==1 or m[j]==1:
+                    matrix[i][j]=0
 
         return matrix
 
