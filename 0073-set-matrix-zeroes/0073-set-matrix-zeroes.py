@@ -1,34 +1,26 @@
 class Solution:
-    def setZeroes(self, matrix):  # n과 m을 제거
-        n = len(matrix)  # 행의 개수
-        m = len(matrix[0])  # 열의 개수
-        row = [0] * n  # row array
-        col = [0] * m  # col array
+    def setZeroes(self, matrix): 
 
-        # Traverse the matrix:
-        for i in range(n):
-            for j in range(m):
+        if not matrix or not matrix[0]:
+           return "Matrix is empty"
+
+        n=[0]*len(matrix) #row
+        m=[0]*len(matrix[0]) #column
+        #row 
+        for i in range(len(matrix)):
+            for j in range(len(matrix[0])):
                 if matrix[i][j] == 0:
-                    # mark ith index of row with 1:
-                    row[i] = 1
-                    # mark jth index of col with 1:
-                    col[j] = 1
+                    n[i] = 1  # i번째 행에 0이 있음을 기록
+                    m[j] = 1  # j번째 열에 0이 있음을 기록
 
-        # Finally, mark all (i, j) as 0
-        # if row[i] or col[j] is marked with 1.
-        for i in range(n):
-            for j in range(m):
-                if row[i] or col[j]:
-                    matrix[i][j] = 0
+        # 2단계: 0이 있는 행과 열을 0으로 설정
+        for i in range(len(matrix)):
+            for j in range(len(matrix[0])):
+                if n[i] == 1 or m[j] == 1:  # 행 또는 열에 0이 있으면
+                    matrix[i][j] = 0  # 해당 요소를 0으로 설정
 
         return matrix
 
-
-if __name__ == "__main__":
-    matrix = [[1, 1, 1], [1, 0, 1], [1, 1, 1]]
-
-    # Solution 클래스의 인스턴스를 생성하고 setZeroes 메서드 호출
-    solution = Solution()
-    ans = solution.setZeroes(matrix)
-
-    print(matrix)
+matrix=[]
+a=Solution()
+print(a.setZeroes(matrix))
