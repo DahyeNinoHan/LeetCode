@@ -9,4 +9,5 @@ class Solution:
             potential_profit = price - min_price        
             if potential_profit > max_profit:
                 max_profit=potential_profit
+                
         return max_profit 
